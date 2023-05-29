@@ -1,0 +1,34 @@
+﻿<Window x:Class="LaboratoryWork2.View.EditGroupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaboratoryWork2.View"
+        mc:Ignorable="d"
+        Title="EditGroupWindow" Height="300" Width="300"
+        Name="EditGroupWnd">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="New name"/>
+            <TextBox Text="{Binding GroupName}"/>
+            <TextBlock Text="New cours"/>
+            <TextBox Text="{Binding GroupCours}" />
+            <TextBlock Text="New max of students"/>
+            <TextBox Text="{Binding GroupMaxNumber}" />
+            <TextBlock Text="New institute"/>
+            <ComboBox ItemsSource="{Binding AllInstitute}"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding GroupInstitute}"/>
+        </StackPanel>
+        <Button Grid.Row="1" Content="Edit group"
+                Command="{Binding EditGroup}"
+                CommandParameter="{Binding ElementName=EditGroupWnd}"/>
+    </Grid>
+</Window>
